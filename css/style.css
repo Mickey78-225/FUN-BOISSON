@@ -1,0 +1,561 @@
+/*==============    VARIABLES ET STYLE GLOBAL    ==============*/
+:root {
+    --couleur-principale: #fff;
+    --couleur-secondaire: #19bb9b;
+    --couleur-terciaire: #818181;
+    --bleu: #3070cc;
+    --couleur-de-texte: #333333;
+    --couleur-icone: #D0D0D0;
+    --taille-texte-1: 14px;
+    --taille-texte-2: 17px;
+    --taille-texte-3: 22px;
+    --taille-texte-4: 40px;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+    width: fit-content;
+}
+ul {
+    list-style: none;
+}
+.promo {
+    font-size: .75rem;
+    opacity: .25;
+}
+.promo:hover {
+    opacity: 1;
+}
+/*==============    REINITIALISATION    ==============*/
+*,
+::after,
+::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Raleway", sans-serif;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    scroll-snap-align: center;
+}
+
+/*============== HEADER ET HERO ==============*/
+header {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+.fond-header {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.fond-header img {
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/*============== BARRE DE NAVIGATION ==============*/
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 90px;
+    padding: 0 45px;
+    z-index: 100;
+    background-color: transparent;
+    transition: background-color 200ms ease-out;
+}
+.navbar figure {
+    height: 100%;
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+    height: 100%;
+    width: 75%;
+}
+header nav ul {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+}
+header nav ul li {
+    text-align: center;
+    background-color: transparent;
+    border-radius: 4em;
+    padding: 10px 28px 12px 29px;
+    transition: background-color 200ms ease-out;
+}
+
+header nav ul li a {
+    color: var(--couleur-de-texte);
+    font-size: var(--taille-texte-2);
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0px;
+    text-transform: capitalize;
+    transition: color 200ms ease-out;
+}
+
+header nav ul li:hover a {
+    color: var(--couleur-secondaire);
+}
+.navbar.scrolled {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--bleu);
+} 
+.scrolled a{
+    color: var(--couleur-principale);
+}
+.fond.position {
+    background-color: var(--couleur-principale);
+    border-radius: 4em;
+    padding: 10px 28px 12px 29px;
+}
+.fond.position a{
+    color: var(--couleur-de-texte);
+}
+.fond.position:hover a{
+    color: var(--couleur-secondaire);
+}
+
+/*============== HERO ==============*/
+header .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100% - 90px);
+    z-index: 1;
+}
+header .hero h1 {
+    text-align: center;
+    font-size: 90px;
+    color: var(--couleur-principale);
+    line-height: 110px;
+    font-style: normal;
+    font-weight: 700;
+    text-shadow: none;
+    letter-spacing: 0px;
+    text-transform: none;
+    transition: opacity 200ms ease-out;
+}
+
+/*============== CORPS DE LA PAGE ==============*/
+main {
+    min-height: 100vh;
+    width: 100%;
+}
+/*============== PARTIE GARANTIE ==============*/
+#garantie {
+    height: 90vh;
+    width: 100%;
+    padding: 126px 0 93px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+#garantie article {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#garantie article div {
+    height: 100%;
+    width: 27%;
+    padding: 0 15px;
+    background-color: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.icone {
+    font-size: 80px;
+    color: var(--couleur-icone);
+    cursor: pointer;
+    transition: color 200ms ease-out;
+}
+.icone:hover {
+    color: var(--couleur-secondaire);
+}
+#garantie div h3 {
+    font-size: var(--taille-texte-3);
+    padding-top: 27px;
+    font-weight: 700;
+    color: #333;
+}
+#garantie div p {
+    font-size: var(--taille-texte-1);
+    padding-top: 11px;
+    color: #595959;
+}
+
+/*============== NOTRE HISTOIRE ==============*/
+#histoire {
+    width: 100%;
+    min-height: 50vh;
+    background-image: url("../img/alcodis_parallax.jpg");
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-size: 108%;
+    background-attachment: fixed;
+    padding: 3% 10%;
+}
+#histoire :is(p, h3) {
+    text-align: center;
+}
+#histoire h3 {
+    color: #595959;
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 5px;
+}
+#histoire p {
+    font-size: 20px;
+    color: #333;
+}
+
+/*============== NOS EXPERTS DANS LE SECTEUR ==============*/
+#membres {
+    width: 100%;
+    height: auto;
+    padding-top: 114px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fafafa;
+}
+
+#membres article:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#membres article:first-child h2 {
+    font-size: var(--taille-texte-4);
+    color: #333;
+    font-weight: 700;
+    letter-spacing: 0px;
+    text-transform: none;
+    padding-bottom: 17px;
+}
+#membres article:first-child p {
+    font-size: var(--taille-texte-3);
+    color: #333;
+    text-align: center;
+    font-weight: 400;
+}
+
+#membres article:last-child {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#membres .row {
+    width: 81%;
+    padding: 32px 0 48px 0;
+    margin: 0 -15px;
+    display: flex;
+}
+
+#membres .row .card {
+    width: 25%;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#membres .card img {
+    padding-bottom: 38px;
+}
+#membres .card h4 {
+    font-size: var(--taille-texte-3);
+    font-weight: 700;
+    color: #333333;
+    padding-bottom: 11px;
+}
+#membres .card p {
+    font-size: var(--taille-texte-1);
+    color: #595959;
+    line-height: 25px;
+}
+
+
+
+/*============== LES CHIFFRES DE L'ENTREPRISE ==============*/
+#chiffres_location {
+    width: 100%;
+    height: auto;
+}
+#chiffres {
+    width: 100%;
+    height: 60vh;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+#chiffres .img_fond {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+#chiffres .img_fond img {
+    width: 100%;
+    scale: 1.018;
+    z-index: -1;
+}
+
+#chiffres aside {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+#chiffres aside div {
+    width: 20%;
+    height: 50%;
+    padding: 0 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 29px;
+    font-weight: 600;
+    color: #fff;
+}
+#chiffres aside div h4 {
+    font-size: 100px;
+}
+#chiffres aside div p {
+    font-size: 21px;
+}
+
+#location {
+    width: 100%;
+    height: 100vh;
+    padding: 110px 0 134px 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+#location h2 {
+    color: #333333;
+    font-size: var(--taille-texte-4);
+    line-height: 50px;
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 42px;
+}
+#location aside {
+    width: 40%;
+}
+#location aside:last-child {
+    background-color: crimson;
+    height: 100%;
+}
+#location .formulaire p {
+    font-size: var(--taille-texte-3);
+    padding-bottom: 30px;
+}
+#location .formulaire form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+#location form input {
+    width: 635px;
+    margin: 5px 0;
+    padding: 24px 15px;
+    background-color: #f2f2f2;
+    border-width: 0px;
+    border-style: solid;
+    border-radius: 5px;
+    color: #707070;
+    font-size: var(--taille-texte-2);
+    line-height: 22px;
+    font-style: italic;
+    font-weight: 500;
+    text-align: center;
+}
+#location form input:nth-child(4) {
+    height: 155px;
+    margin-bottom: 5px;
+}
+#location form input:focus {
+    background-color: #777777;
+    outline: none;
+    border: none;
+    color: #f2f2f2;
+}
+#location form button {
+    width: 635px;
+    height: 47px;
+    margin-top: 6px;
+    border-radius: 30px;
+    border: 2px solid black;
+    background-color: transparent;
+    font-weight: 700;
+    font-size: var(--taille-texte-2);
+    transition:
+        background-color 0.15s ease-in,
+        color 0.15s ease-in;
+    cursor: pointer;
+}
+#location form button:hover {
+    background-color: #3070cc;
+    color: #ffffff;
+}
+
+/*============== CAROUSEL AVEC SPIDE JS ==============*/
+#carousel {
+    width: 100%;
+    padding-top: 50px;
+    background-color: #fafafa;
+    /* margin-top: 134px; */
+}
+.splide {
+    cursor: grab;
+}
+.splide__slide img {
+    height: 270px;
+    filter: grayscale(100%);
+    opacity: 40%;
+    transition:
+        filter 0.5s ease-in,
+        opacity 0.5s ease-in;
+}
+.splide__slide img:hover {
+    filter: grayscale(0%);
+    opacity: 100%;
+}
+
+/*============== FOOTER ==============*/
+footer {
+    height: auto;
+    width: 100%;
+}
+footer section {
+    width: 100%;
+}
+footer section:first-child {
+    padding: 68px 86px 68px 73px;
+    background-color: #3070cc;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+footer section:first-child article {
+    height: 100%;
+    width: 30%;
+}
+footer section:first-child article:first-child {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+footer section:first-child a {
+    color: #ffffff;
+    font-size: var(--taille-texte-1);
+    font-weight: 400;
+    line-height: 25px;
+    transition: color 0.25s ease;
+}
+footer section:first-child article a:hover {
+    color: #19bb9b;
+}
+footer section:first-child figure {
+    display: flex;
+    align-items: center;
+    
+    height: 150px;
+    overflow: hidden;
+}
+footer section:first-child article:last-child {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+}
+footer section:first-child article:last-child div {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    color: #333;
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease;
+}
+footer section:first-child article:last-child div:hover {
+    color: #ffffff;
+    background-color: #19bb9b;
+    cursor: pointer;
+}
+footer section:first-child article:last-child p {
+    width: 100%;
+    text-align: end;
+    color: #ffffff;
+    font-size: var(--taille-texte-1);
+    font-weight: 400;
+    line-height: 25px;
+    padding-bottom: 21px;
+}
+
+footer section:last-child {
+    height: 123px;
+    background-color: #3a3a3a;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+footer section:last-child p:first-child {
+    font-size: 12px;
+    padding-bottom: 5px;
+}
+footer section:last-child p:last-child {
+    font-size: var(--taille-texte-1);
+    line-height: 25px;
+    font-weight: 400;
+}

@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- CDN SIMPLE PARALLAX -->
+        <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script>
+        <!-- CDN SPLIDE JS-->
+        <link
+            href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
+            rel="stylesheet" />
+
+        <title>PARALLAX EFFECT TEST</title>
+    </head>
+    <body>
+        <header>
+            <figure class="fond-header">
+                <img
+                    src="../img/header_img.jpg"
+                    alt="Fleur orange"
+                    class="rellax"
+                    data-rellax-speed="-10" />
+            </figure>
+
+            <section class="navbar"></section>
+
+            <section></section>
+        </header>
+
+        <section class="block">
+            <div>
+                <h4 class="monH41">0</h4>
+                <p>Available references</p>
+            </div>
+
+            <div>
+                <h4 class="monH42">0</h4>
+                <p>Available references</p>
+            </div>
+
+            <div>
+                <h4 class="monH43">0</h4>
+                <p>Available references</p>
+            </div>
+
+            <div>
+                <h4 class="monH44">0</h4>
+                <p>Available references</p>
+            </div>
+        </section>
+
+        <section class="carousel">
+            <section class="splide" aria-labelledby="carousel-heading">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <img src="../img/Carousel-1.png" alt="" />
+                        </li>
+                        <li class="splide__slide">
+                            <img src="../img/Carousel-2.png" alt="" />
+                        </li>
+                        <li class="splide__slide">
+                            <img src="../img/Carousel-3.png" alt="" />
+                        </li>
+                        <li class="splide__slide">
+                            <img src="../img/Carousel-4.png" alt="" />
+                        </li>
+                        <li class="splide__slide">
+                            <img src="../img/Carousel-5.png" alt="" />
+                        </li>
+                        <li class="splide__slide">
+                            <img src="../img/Carousel-6.png" alt="" />
+                        </li>
+                        <li class="splide__slide">
+                            <img src="../img/Carousel-7.png" alt="" />
+                        </li>
+                        <li class="splide__slide">
+                            <img src="../img/Carousel-8.png" alt="" />
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </section>
+
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js"
+            integrity="sha512-f5HTYZYTDZelxS7LEQYv8ppMHTZ6JJWglzeQmr0CVTS70vJgaJiIO15ALqI7bhsracojbXkezUIL+35UXwwGrQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    </body>
+
+    <script>
+        function handleScroll() {
+            const navbars = document.getElementsByClassName("navbar");
+            for (const navbar of navbars) {
+                if (window.scrollY > 0) {
+                    navbar.classList.add("scrolled");
+                    console.log("1");
+                } else {
+                    navbar.classList.remove("scrolled");
+                    console.log("0");
+                }
+            }
+        }
+        document.addEventListener("scroll", handleScroll);
+        // SPIDE JS LIBRAIRIE
+        document.addEventListener("DOMContentLoaded", function () {
+            var splide = new Splide(".splide", {
+                height: "316px",
+                type: "loop",
+                perPage: 6,
+                perMove: 1,
+                autoplay: true,
+                pagination: false,
+                interval: 5000,
+                speed: 2500,
+                drag: true,
+                pauseOnHover: false,
+                arrows: false,
+                snap: 1,
+                easing: "ease 0.5s",
+            });
+            splide.mount();
+        });
+
+        function incrementH4Value(className, maxValue, finalValue) {
+            const element = document.querySelector(`.${className}`); // Sélectionnez l'élément par sa classe
+            let currentValue = parseInt(element.textContent, 10);
+
+            const interval = setInterval(() => {
+                const randomIncrement =
+                    Math.floor(Math.random() * maxValue) + 1; // Générez une valeur aléatoire entre 1 et 200
+                currentValue += randomIncrement;
+
+                // Mettez à jour le contenu de l'élément <h4>
+                element.textContent = currentValue;
+
+                if (currentValue >= finalValue) {
+                    clearInterval(interval);
+                    element.textContent = finalValue;
+                }
+            }, 150); // Incrémentation toutes les 100 millisecondes
+        }
+
+        // Utilisation de la fonction avec une valeur finale de 3000 et la classe "monH4"
+        incrementH4Value("monH41", 200, 3000);
+        incrementH4Value("monH42", 600, 8000);
+        incrementH4Value("monH43", 50, 650);
+        incrementH4Value("monH44", 275, 3600);
+
+        // SIMPLE PARRALAX LIBRAIRIES
+        // var image = document.getElementsByClassName("imgparallax1");
+        // new simpleParallax(image, {
+        //     orientation: "down",
+        //     scale: 1,
+        //     speed: 5000,
+        //     transition: "ease-in",
+        // });
+
+        //RELLAX JS LIBRAIRIE
+        var rellax = new Rellax(".rellax");
+
+        AOS.init();
+    </script>
+</html>
+
+<style>
+    *,
+    ::after,
+    ::before {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html,
+    body {
+        min-height: 200vh;
+        width: 100%;
+        background-color: #222;
+    }
+    header {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+    }
+    .fond-header {
+        height: 100vh;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    header .fond-header img {
+        width: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: aqua;
+        width: 100%;
+        height: 90px;
+    }
+    .scrolled {
+        background-color: blanchedalmond;
+    }
+
+    .block {
+        height: 100vh;
+        width: 100%;
+        z-index: 3;
+        background-color: #fff;
+    }
+    h4 {
+        font-size: 24px;
+    }
+
+    .carousel {
+        height: 270px;
+        width: 100%;
+        background-color: transparent;
+        margin: 10% 0 0 0;
+    }
+    .splide {
+        background-color: #fff;
+        cursor: grab;
+    }
+
+    .splide__slide img {
+        height: 90%;
+        filter: grayscale(100%);
+        opacity: 50%;
+        transition:
+            filter 0.5s ease-in,
+            opacity 0.5s ease-in;
+    }
+    .splide__slide img:hover {
+        filter: grayscale(0%);
+        opacity: 100%;
+    }
+</style>
