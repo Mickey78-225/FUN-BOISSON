@@ -51,7 +51,7 @@ window.addEventListener('load', () => {
     function handleScroll() {
         const navbars = document.getElementsByClassName("navbar");
         const fonds = document.getElementsByClassName("fond");
-    
+
         for (const fond of fonds) {
             for (let i = 0; i < fonds.length; i++) {
                 fonds[i].classList.remove("position");
@@ -66,11 +66,11 @@ window.addEventListener('load', () => {
                     fonds[1].classList.add("position");
                     break;
     
-                case window.scrollY > 1680 && window.scrollY <= 3700:
+                case window.scrollY > 1680 && window.scrollY <= 2768:
                     fonds[2].classList.add("position");
                     break;
     
-                case window.scrollY > 3700:
+                case window.scrollY > 2768:
                         fonds[3].classList.add("position");
                         break;    
             }
