@@ -115,11 +115,12 @@ header nav ul li a {
     font-weight: 700;
     letter-spacing: 0px;
     text-transform: capitalize;
-    transition: color 200ms ease-out;
+    
 }
 
 header nav ul li:hover a {
     color: var(--couleur-secondaire);
+    transition: color 200ms ease-out;
 }
 .navbar.scrolled {
     position: fixed;

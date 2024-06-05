@@ -12,7 +12,7 @@ function emailSend() {
     "<br/> Email" +  email  +
     "<br/> Téléphone" +  tel  +
     "<br/><br/> Message" +  message;
-    console.log(messageBody);
+    
     Email.send({
         Host : "smtp.elasticemail.com",
         Username : "noreplyfunboisson@gmail.com",

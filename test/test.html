@@ -4,6 +4,8 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
         <!-- CDN SIMPLE PARALLAX -->
         <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script>
         <!-- CDN SPLIDE JS-->
@@ -48,6 +50,12 @@
                 <h4 class="monH44">0</h4>
                 <p>Available references</p>
             </div>
+        </section>
+
+        <section>
+            <form action="" method="post">
+                <input type="button" value="Send mail" onclick="sendEmail()">
+            </form>
         </section>
 
         <section class="carousel">
@@ -150,18 +158,24 @@
         incrementH4Value("monH42", 600, 8000);
         incrementH4Value("monH43", 50, 650);
         incrementH4Value("monH44", 275, 3600);
-
-        // SIMPLE PARRALAX LIBRAIRIES
-        // var image = document.getElementsByClassName("imgparallax1");
-        // new simpleParallax(image, {
-        //     orientation: "down",
-        //     scale: 1,
-        //     speed: 5000,
-        //     transition: "ease-in",
-        // });
-
         //RELLAX JS LIBRAIRIE
         var rellax = new Rellax(".rellax");
+
+        function sendEmail() {
+            Email.send({
+                Host : "smtp.elasticemail.com",
+                Username : "noreplyfunboisson@gmail.com",
+                Password : "603A7",
+                To : 'funboisson@gmail.com',
+                From : "noreplyfunboisson@gmail.com",
+                Subject : "Client Fun Boissons",
+            Body : "And this is the body"
+        }).then(
+            message => alert(message)
+        );
+        }
+        
+
 
         AOS.init();
     </script>
