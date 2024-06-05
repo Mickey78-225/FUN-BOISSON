@@ -8,11 +8,11 @@ function emailSend() {
     var tel = document.getElementById("tel").value;
     var message = document.getElementById("message").value;
 
-    var messageBody = "Nom: " +  username  +
-    "<br/> Email: " +  email  +
-    "<br/> Téléphone: " +  tel  +
-    "<br/><br/> Message: " +  message;
-
+    var messageBody = "Nom" +  username  +
+    "<br/> Email" +  email  +
+    "<br/> Téléphone" +  tel  +
+    "<br/><br/> Message" +  message;
+    console.log(messageBody);
     Email.send({
         Host : "smtp.elasticemail.com",
         Username : "noreplyfunboisson@gmail.com",
@@ -26,32 +26,25 @@ function emailSend() {
         if (message === 'OK'){
             Swal.fire({
                 icon: "success",
-                title: "Merci",
-                text: "Votre email a été envoyé !",
+                title: "Thanks",
+                text: "Your email was send!",
                 timer: 3000,
                 timerProgressBar: true
               });
         } else {
             Swal.fire({
                 icon: "error",
-                title: "Oups...",
-                text: "Quelque chose s'est mal passé !",
+                title: "Oops...",
+                text: "Something went wrong!",
                 timer: 3000,
                 timerProgressBar: true
               });
         }
       }
-    ).catch(error => {
-        console.error("Erreur lors de l'envoi de l'email :", error);
-        Swal.fire({
-            icon: "error",
-            title: "Erreur",
-            text: "Impossible d'envoyer l'email. Vérifiez la console pour plus de détails.",
-            timer: 3000,
-            timerProgressBar: true
-        });
-    });
+    );
 }
+
+
 
 function decreaseOpacityOnScroll(elementSelector) {
     const element = document.querySelector(elementSelector);
