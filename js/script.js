@@ -3,15 +3,15 @@ window.addEventListener('load', () => {
 });
 
 function emailSend() {
-    var username = document.getElementById("name").value;name
+    var username = document.getElementById("name").value;
     var email = document.getElementById("email").value;
     var tel = document.getElementById("tel").value;
     var message = document.getElementById("message").value;
 
-    var messageBody = "Nom" +  username  +
-    "<br/> Email" +  email  +
-    "<br/> Téléphone" +  tel  +
-    "<br/><br/> Message" +  message;
+    var messageBody = "Nom: " +  username  +
+    "<br/> Email: " +  email  +
+    "<br/> Téléphone: " +  tel  +
+    "<br/><br/> Message: " +  message;
 
     Email.send({
         Host : "smtp.elasticemail.com",
@@ -26,25 +26,32 @@ function emailSend() {
         if (message === 'OK'){
             Swal.fire({
                 icon: "success",
-                title: "Thanks",
-                text: "Your email was send!",
+                title: "Merci",
+                text: "Votre email a été envoyé !",
                 timer: 3000,
                 timerProgressBar: true
               });
         } else {
             Swal.fire({
                 icon: "error",
-                title: "Oops...",
-                text: "Something went wrong!",
+                title: "Oups...",
+                text: "Quelque chose s'est mal passé !",
                 timer: 3000,
                 timerProgressBar: true
               });
         }
       }
-    );
+    ).catch(error => {
+        console.error("Erreur lors de l'envoi de l'email :", error);
+        Swal.fire({
+            icon: "error",
+            title: "Erreur",
+            text: "Impossible d'envoyer l'email. Vérifiez la console pour plus de détails.",
+            timer: 3000,
+            timerProgressBar: true
+        });
+    });
 }
-
-
 
 function decreaseOpacityOnScroll(elementSelector) {
     const element = document.querySelector(elementSelector);
