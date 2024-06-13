@@ -36,10 +36,10 @@ ul {
     font-family: "Raleway", sans-serif;
 }
 
-html {
+/* html {
     scroll-behavior: smooth;
     scroll-snap-align: center;
-}
+} */
 body {
     width: 100%;
     min-height: 100vh;
